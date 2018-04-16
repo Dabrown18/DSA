@@ -42,7 +42,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
         if ( this.root.getData().compareTo(data) == 0 ) {
             this.root = this.root.getNextNode();
         } else {
-            remove();
+            remove(data, root, root.getNextNode());
         }
     }
 
@@ -60,16 +60,17 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
     }
 
     @Override
-    public void traverse(T data) {
+    public void traverseList() {
         if ( this.root == null ) return;
 
         Node<T> actualNode = this.root;
 
         while ( actualNode != null ) {
-            System.out.print(actualNode + " ");
+            System.out.print(actualNode + " -> ");
             actualNode = actualNode.getNextNode();
         }
     }
+
 
     @Override
     public int size() {
