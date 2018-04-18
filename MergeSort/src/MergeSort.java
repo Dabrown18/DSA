@@ -25,6 +25,13 @@ public class MergeSort {
 
     }
 
+    // Show result of Merge Sort
+    public void showResult() {
+        for ( int i = 0; i < nums.length; i++ ) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+
     // Merging sub arrays together
     private void merge( int low, int middle, int high ) {
 
