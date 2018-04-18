@@ -14,6 +14,7 @@ public class Main {
             nums[j] = random.nextInt(1000) - 500;
         }
 
+        // O(n logn)
         // Created mergeSort using nums array
         MergeSort mergeSort =  new MergeSort(nums);
 
@@ -22,7 +23,6 @@ public class Main {
 
         // Showing the result of the merge
         mergeSort.showResult();
-
 
     }
 }
