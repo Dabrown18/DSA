@@ -8,42 +8,44 @@ public class Main {
         Given an array arr[] of n elements, write a function to search
         a given element x in arr[].
     */
-    int[] arr;
-    arr = new int[10];
+    ArrayClass arr;
+    arr = new ArrayClass(10);
+
     int selectedNumber;
-    selectedNumber = 20;
+    selectedNumber = 82;
 
-    arr[0] = 25;
-    arr[1] = 72;
-    arr[2] = 36;
-    arr[3] = 44;
-    arr[4] = 19;
-    arr[5] = 20;
-    arr[6] = 82;
-    arr[7] = 89;
-    arr[8] = 43;
-    arr[9] = 27;
+    int nElements = 10;
 
-    for ( int i = 0; i < arr.length; i++) {
-        if ( selectedNumber == arr[i]) {
+    arr.setElements(0,23);
+    arr.setElements(1,71);
+    arr.setElements(2,82);
+    arr.setElements(3,6);
+    arr.setElements(4,25);
+    arr.setElements(5,34);
+    arr.setElements(6,56);
+    arr.setElements(7,89);
+    arr.setElements(8,17);
+    arr.setElements(9,37);
+
+    for (int i = 0; i < nElements; i++) {
+        System.out.print(arr.getElements(i) + " ");
+    }
+
+    System.out.println(" ");
+
+
+    for ( int i = 0; i < nElements; i++) {
+        if ( selectedNumber == arr.getElements(i)) {
             System.out.println( selectedNumber + " is in the array!");
         }
     }
 
+
+
     // Arrange Array in ascending order
-    int temp;
+        System.out.println(arr.ascending(0));
 
-    for ( int i = 0; i < arr.length; i++) {
-        for ( int j = i + 1; j < arr.length; j++ ) {
-            if ( arr[i] > arr[j]) {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-
-        System.out.print(arr[i] + " ");
-    }
+/*
 
         System.out.println(" ");
 
@@ -61,8 +63,8 @@ public class Main {
     }
 
     System.out.println(" ");
+*/
 
-    // Binary Search
 
 
     }
