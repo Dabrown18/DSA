@@ -20,16 +20,15 @@ public class ArrayClass {
         return arr[index];
     }
 
-    public int ascending( int startingPoint ) {
-        for ( int i = startingPoint; i < nElements; i++) {
-            for ( int j = i + 1; j < nElements; j++ ) {
+    public int ascending( int[] arr ) {
+        for ( int i = startingPoint; i < arr.length; i++) {
+            for ( int j = i + 1; j < arr.length; j++ ) {
                 if ( arr[i] > arr[j]) {
                     temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
                 }
             }
-            value = System.out.println(arr[i]);
         }
 
         return arr[startingPoint];

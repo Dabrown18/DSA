@@ -2,18 +2,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int score = 90;
+        Stack<Integer> myStack = new Stack<>();
 
-        if (score >= 60.0)
-            System.out.println("D");
-        else if (score >= 70.0)
-            System.out.println("C");
-        else if (score >= 80.0)
-            System.out.println("B");
-        else if (score >= 90.0)
-            System.out.println("A");
-        else
-            System.out.println("F");
+        myStack.push(10);
+        myStack.push(100);
+        myStack.push(1000);
+
+        System.out.println(myStack.size());
+
+        System.out.println("The last item in the stack is " + myStack.pop());
 
     }
 }
