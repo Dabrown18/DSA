@@ -31,6 +31,49 @@ public class Heap {
 
     }
 
+    public int getMax() {
+        int result = this.heap[0];
+
+        this.heap[0] = this.heap[currentPosition--];
+        this.heap[currentPosition + 1] = null;
+        fixDown( 0, -1);
+        return result;
+    }
+
+    private void fixDown ( int index, int upto ) {
+        if ( upto < 0 )  upto = currentPosition;
+
+        while ( index < upto ) {
+
+            int leftChild = 2 * index + 1;
+            int rightChild = 2 * index + 2;
+
+            if ( leftChild <= upto ) {
+                int childToSwap;
+
+                if ( rightChild > upto ) {
+                    childToSwap = leftChild;
+                } else {
+                    childToSwap = ( heap[leftChild] > heap[rightChild] ) ? leftChild : rightChild;
+                }
+
+                if ( heap[index] < heap[childToSwap] ) {
+                    int temp =  heap[index];
+                    heap[index] = heap[childToSwap];
+                    heap[childToSwap] = temp;
+                } else {
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+    public int getMin() {
+        int result = this.heap.length;
+    }
+
     private boolean isFull() {
         return this.currentPosition ==  this.heap.length;
     }
