@@ -49,7 +49,7 @@ public class Heap {
             heap[currentPosition - i] = temp;
             fixDown( 0, currentPosition - i - 1 );
         }
-        
+
     }
 
     private void fixDown ( int index, int upto ) {
