@@ -40,6 +40,18 @@ public class Heap {
         return result;
     }
 
+    public void heapsort() {
+
+        for ( int i = 0; i <= currentPosition; ++i ) {
+            int temp = heap[0];
+            System.out.println( temp + " ");
+            heap[0] = heap[currentPosition - i];
+            heap[currentPosition - i] = temp;
+            fixDown( 0, currentPosition - i - 1 );
+        }
+        
+    }
+
     private void fixDown ( int index, int upto ) {
         if ( upto < 0 )  upto = currentPosition;
 
@@ -49,6 +61,7 @@ public class Heap {
             int rightChild = 2 * index + 2;
 
             if ( leftChild <= upto ) {
+
                 int childToSwap;
 
                 if ( rightChild > upto ) {
@@ -64,14 +77,11 @@ public class Heap {
                 } else {
                     break;
                 }
+
             }
 
         }
 
-    }
-
-    public int getMin() {
-        int result = this.heap.length;
     }
 
     private boolean isFull() {
