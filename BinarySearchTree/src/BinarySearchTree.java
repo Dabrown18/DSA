@@ -46,6 +46,40 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         System.out.println();
     }
 
+    private Node<T> delete( Node<T> node, T data ) {
+
+        if ( node == null ) return node;
+
+        if ( data.compareTo(node.getData()) < 0 ) {
+            node.setLeftChild( delete(node.getLeftChild(), data ));
+        } else if ( data.compareTo(node.getData()) > 0 ) {
+            node.setRightChild( delete(node.getRightChild(), data ));
+        } else {
+            // (Leaf node) Found the node we want to remove
+            if ( node.getLeftChild() == null && node.getRightChild() == null ) {
+                System.out.println("Removing a leaf node...");
+                return null;
+            }
+
+            if ( node.getLeftChild() == null ) {
+                System.out.println("Removing the right child");
+                Node<T> tempNode = node.getRightChild();
+                node = null;
+                return tempNode;
+            } else if ( node.getRightChild() == null ) {
+                System.out.println("Removing the left child");
+                Node<T> tempNode = node.getLeftChild();
+                node = null;
+                return tempNode;
+            }
+
+            // Node has two children
+
+        }
+
+        return node;
+    }
+
     private void insertNode(T newData, Node<T> node) {
 
         if ( newData.compareTo(node.getData()) < 0 ) {
@@ -67,8 +101,11 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public void delete(T data) {
-
+        if ( root != null) {
+            root = delete( root, data );
+        }
     }
+
 
     private T getMax(Node<T> node) {
 
