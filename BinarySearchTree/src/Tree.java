@@ -4,6 +4,4 @@ public interface Tree<T> {
     public void delete( T data );
     public T getMaxValue();
     public T getMinValue();
-
-
 }
