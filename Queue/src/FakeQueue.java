@@ -1,21 +1,17 @@
-public class Queue<T extends Comparable<T>> {
-
-    private Node<T> firstNode; // Pointer: points to the first node in the Queue
-    private Node<T> lastNode; // Pointer: points to the last node in the Queue
+public class FakeQueue<T extends Comparable <T>> {
+    private Node<T> firstNode;
+    private Node<T> lastNode;
     private int count;
 
-    // Checks if the Queue is empty
     public boolean isEmpty() {
         return this.firstNode == null;
     }
 
-    // Give you the current size of the container
     public int size() {
         return this.count;
     }
 
-    // O(1) Adding data to the container
-    public void enqueue( T newData) {
+    public void enqueue( T newData ) {
 
         this.count++;
 
@@ -23,16 +19,14 @@ public class Queue<T extends Comparable<T>> {
         this.lastNode = new Node<>(newData);
         this.lastNode.setNextNode(null);
 
-        // If container is empty the first node is the last node
+
         if ( isEmpty() ) {
             this.firstNode = this.lastNode;
         } else {
             oldLastNode.setNextNode(this.lastNode);
         }
-
     }
 
-    // O(1)
     public T dequeue() {
 
         this.count--;
@@ -40,11 +34,10 @@ public class Queue<T extends Comparable<T>> {
         T dataToDequeue = this.firstNode.getData();
         this.firstNode = this.firstNode.getNextNode();
 
-        if ( isEmpty() ) {
+        if( isEmpty() ) {
             this.lastNode = null;
         }
 
         return dataToDequeue;
-
     }
 }

@@ -61,7 +61,7 @@ public class QuickSort {
         return i;
     }
 
-    // Helper method: Swapping values
+    // Swapping values
     private void swap(int i, int j) {
         temp = nums[i];
         nums[i] = nums[j];

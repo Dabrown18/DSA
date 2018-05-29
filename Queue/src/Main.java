@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Queue<Integer> myQueue = new Queue<>();
+        FakeQueue<Integer> myQueue = new FakeQueue<>();
 
         myQueue.enqueue(10);
         myQueue.enqueue(100);

@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        HashTable hashTable = new HashTable();
+        HashTable hashTable = new HashTable(10);
 
         hashTable.put(1, 10);
         System.out.println();

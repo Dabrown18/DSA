@@ -8,13 +8,18 @@ public class MergeSort {
         tempArray = new int[nums.length]; // matches the numbers array
     }
 
+    // Show result of Merge Sort
+    public void showResult() {
+        for ( int i = 0; i < nums.length; i++ ) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+
     // Divide the array into two seperate arrays
     public void mergeSort(int low, int high) {
 
         // Means there is a single item in the sub array
-        if(low >= high) {
-            return;
-        }
+        if(low >= high) return;
 
         // Calculate the middle index
         int middle = (low + high) / 2;
@@ -23,13 +28,6 @@ public class MergeSort {
         mergeSort(middle + 1, high);
         merge(low, middle, high);
 
-    }
-
-    // Show result of Merge Sort
-    public void showResult() {
-        for ( int i = 0; i < nums.length; i++ ) {
-            System.out.print(nums[i] + " ");
-        }
     }
 
     // Merging sub arrays together
@@ -66,7 +64,7 @@ public class MergeSort {
         }
 
         // Copy the rest of the right side of the array into the target array
-        while ( j < high ) {
+        while ( j <= high ) {
             nums[k] = tempArray[j];
             k++;
             j++;

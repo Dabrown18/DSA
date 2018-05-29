@@ -1,21 +1,22 @@
 public class HashTable {
 
     private HashItem[] hashTable;
+    private int count;
 
-    public HashTable() {
-        hashTable = new HashItem[Constants.TABLE_SIZE];
+    public HashTable(int size) {
+        hashTable = new HashItem[size];
     }
 
     // Getting Values from the Hash Table
     public int get(int key) {
 
-        int generatedArrayIndex = hash(key);
+        int index = hash(key);
 
-        if ( hashTable[generatedArrayIndex] == null ) {
+        if ( hashTable[index] == null ) {
             return -1;
         } else {
 
-            HashItem hashItem = hashTable[generatedArrayIndex];
+            HashItem hashItem = hashTable[index];
 
             while (hashItem != null && hashItem.getKey() != key ) {
                 hashItem = hashItem.getNextHashItem();
@@ -33,16 +34,16 @@ public class HashTable {
 
     // Putting Values into the Hash Table
     public void put( int key, int value ) {
-        int hashArrayIndex = hash(key);
+        int index = hash(key);
 
-        if ( hashTable[hashArrayIndex] == null ) {
+        if ( hashTable[index] == null ) {
             // There is NO collision
             System.out.println("There is no collision");
-            hashTable[hashArrayIndex] = new HashItem(key, value);
+            hashTable[index] = new HashItem(key, value);
         } else {
             // There is a collision
             System.out.println("Collision when inserting with a key " + key);
-            HashItem hashItem = hashTable[hashArrayIndex];
+            HashItem hashItem = hashTable[index];
 
             while ( hashItem.getNextHashItem() != null ) {
                 // Adding another value to the Link list
@@ -58,6 +59,6 @@ public class HashTable {
 
 
     private int hash(int key) {
-        return key % Constants.TABLE_SIZE;
+        return key % hashTable.length;
     }
 }

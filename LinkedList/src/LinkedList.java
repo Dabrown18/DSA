@@ -66,7 +66,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
         Node<T> actualNode = this.root;
 
         while ( actualNode != null ) {
-            System.out.print(actualNode + " -> ");
+            System.out.print(" -> " + actualNode );
             actualNode = actualNode.getNextNode();
         }
     }

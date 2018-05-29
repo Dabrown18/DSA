@@ -2,7 +2,7 @@ public class Stack<T> {
 
     // Stack Arrays are not dynamic. You have to set the size of the array
     private T[] stack;
-    private int numOfItems;
+    private int count;
 
     public Stack() {
         this.stack = ( T[] ) new Object[1];
@@ -10,18 +10,18 @@ public class Stack<T> {
 
     public void push ( T newData ) {
         // If stack is full, the array will double in size
-        if( numOfItems == this.stack.length ) {
+        if( count == this.stack.length ) {
             resize( 2 * this.stack.length );
         }
 
-        this.stack[numOfItems++] = newData;
+        this.stack[count++] = newData;
     }
 
     public T pop() {
 
-        T itemToPop = this.stack[--numOfItems];
+        T itemToPop = this.stack[--count];
 
-        if( numOfItems > 0 && numOfItems == this.stack.length / 4) {
+        if( count > 0 && count == this.stack.length / 4) {
             resize(this.stack.length / 2);
         }
 
@@ -30,12 +30,12 @@ public class Stack<T> {
 
     // Empty stack
     public boolean isEmpty() {
-        return this.numOfItems == 0;
+        return this.count == 0;
     }
 
     // Reports the size of the size
     public int size() {
-        return this.numOfItems;
+        return this.count;
     }
 
     // 0(N) Linear time capacity
@@ -43,7 +43,7 @@ public class Stack<T> {
         T[] stackCopy = (T[]) new Object[capacity];
 
         // Copy the items from old stack to new stack
-        for ( int i = 0; i < numOfItems; i++ ) {
+        for ( int i = 0; i < count; i++ ) {
             stackCopy[i] = this.stack[i];
         }
 

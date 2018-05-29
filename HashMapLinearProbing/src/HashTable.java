@@ -2,8 +2,8 @@ public class HashTable {
 
     private HashItem[] hashTable;
 
-    public HashTable() {
-        this.hashTable = new HashItem[Constants.TABLE_SIZE];
+    public HashTable(int size) {
+        this.hashTable = new HashItem[size];
     }
 
     // How to retrieve values
@@ -11,10 +11,10 @@ public class HashTable {
 
         int generatedIndex = hashFunction(key);
 
-        while ( hashTable[generatedIndex] != null && hashTable[generatedIndex].getKey() == key ) {
+        while ( hashTable[generatedIndex] != null && hashTable[generatedIndex].getKey() != key ) {
             // Mapping to the next index
             System.out.println("Mapping to index");
-            generatedIndex = (generatedIndex + 1) % Constants.TABLE_SIZE;
+            generatedIndex = (generatedIndex + 1) % hashTable.length;
         }
 
         if ( hashTable[generatedIndex] == null ) {
@@ -32,7 +32,7 @@ public class HashTable {
         while ( hashTable[generatedIndex] != null ) {
             // Collision -> next Index is generated
             System.out.println("Collision");
-            generatedIndex = ( generatedIndex + 1 ) % Constants.TABLE_SIZE;
+            generatedIndex = ( generatedIndex + 1 ) % hashTable.length;
         }
 
         // Value inserted into the generated index
@@ -41,6 +41,7 @@ public class HashTable {
     }
 
     private int hashFunction( int key ) {
-        return key % Constants.TABLE_SIZE;
+        return key % hashTable.length;
     }
+
 }

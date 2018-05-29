@@ -1,15 +1,17 @@
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.HashMap;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<Person> list = new LinkedList<Person>();
+        HashMap<String, Integer> wordToNum = new HashMap();
 
-        list.insert(new Person("Darron", 29));
-        list.insert(new Person("Ade", 26));
-        list.insert(new Person("Kevon", 29));
-
-        list.traverseList();
+        wordToNum.put("ONE", 1);
+        wordToNum.put("TWO", 2);
+        wordToNum.put("THREE", 3);
+        wordToNum.put("FOUR", 4);
+        wordToNum.put("FIVE", 5);
 
     }
 }
